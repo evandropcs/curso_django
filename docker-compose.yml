@@ -1,0 +1,17 @@
+version: '2.4'
+
+services:
+
+    postgres_local:
+      container_name: "meu-postgres-curso-local-aula8"
+      image: "postgres:13.3-alpine"
+      ports:
+        - "5432:5432"
+      network_mode: host
+      env_file:
+        - .env
+      volumes:
+        - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
